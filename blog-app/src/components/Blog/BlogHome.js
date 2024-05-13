@@ -49,12 +49,12 @@ const BlogHome = () => {
             );
           })}
         </div>
-        {/* <div className="right-content">
-          <Slide />
+        <div className="right-content">
+          {/* <Slide />
           <Card />
           <CardTwo />
-          <Footer />
-        </div> */}
+          <Footer /> */}
+        </div>
       </section>
     </>
   );

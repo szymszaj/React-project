@@ -1,9 +1,9 @@
 import React from "react";
 // import Footer from "../footer/Footer";
-// import Slide from "../Slide/Slide";
-import Card from "./Card";
-import CardTwo from "./CardTwo";
-
+import Slide from "../Slide/Slide";
+// import Card from "./Card";
+// import CardTwo from "./CardTwo";
+//
 const BlogHome = () => {
   const data = [
     {
@@ -50,14 +50,13 @@ const BlogHome = () => {
           })}
         </div>
         <div className="right-content">
-          {/* <Slide />
-          <Card />
-          <CardTwo />
-          <Footer /> */}
+          <Slide />
+          {/* <Card /> */}
+          {/* <CardTwo /> */}
+          {/* <Footer /> */}
         </div>
       </section>
     </>
   );
 };
-
 export default BlogHome;

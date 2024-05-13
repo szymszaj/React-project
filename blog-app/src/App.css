@@ -54,7 +54,44 @@ h2 {
 .home-img img {
   position: absolute;
   left: -40%;
-  top: -34%;
-  height: 110vh;
+  top: 0%;
+  height: 110vh !important;
   z-index: -1;
+}
+.logo {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  color: #000;
+  background: #fff;
+  border-radius: 50%;
+}
+.logo h1 {
+  font-size: 40px;
+  text-align: center;
+}
+.left-content .text {
+  width: 45%;
+  margin-top: 10%;
+}
+.left-content .text h1 {
+  font-size: 48px;
+  line-height: 50px;
+}
+.left-content .text p {
+  margin: 20px 0 5px 0;
+}
+.left-content .text2 {
+  float: right;
+  text-align: right;
+}
+.left-content .qrcode img {
+  margin-top: 35%;
+}
+
+.right-content {
+  padding: 40px;
+  color: #000;
+  position: absolute;
+  right: 0;
 }

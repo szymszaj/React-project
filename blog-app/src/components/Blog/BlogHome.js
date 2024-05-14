@@ -3,7 +3,7 @@ import React from "react";
 import Slide from "../Slide/Slide";
 // import Card from "./Card";
 // import CardTwo from "./CardTwo";
-//
+
 const BlogHome = () => {
   const data = [
     {

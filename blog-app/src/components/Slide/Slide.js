@@ -1,14 +1,13 @@
 import React from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 const Slide = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
@@ -16,24 +15,27 @@ const Slide = () => {
     <>
       <div className="slide">
         <Slider {...settings}>
-          {Sdata.map((value) => {
-            return (
-              <div className="box">
-                <div className="img">
-                  <img src={value.cover} alt="" />
-                </div>
-                <div className="text">
-                  <span>{value.category}</span>
-                  <h2>{value.title}</h2>
-                  <p>{value.desc}</p>
-                </div>
-              </div>
-            );
-          })}
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
         </Slider>
       </div>
     </>
   );
 };
-
 export default Slide;

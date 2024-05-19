@@ -17,11 +17,7 @@
 .slick-dots li button::before {
   font-size: 50px;
 }
-/*
-.slick-dots li.slick-active button:before {
-  color: black !important;
-}
-*/
+
 .CardTwo.slide .box:nth-child(even) {
   flex-direction: row-reverse;
 }

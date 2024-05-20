@@ -1,7 +1,7 @@
 import React from "react";
 // import Footer from "../footer/Footer";
 import Slide from "../Slide/Slide";
-// import Card from "./Card";
+import Card from "./Card";
 // import CardTwo from "./CardTwo";
 
 const BlogHome = () => {
@@ -51,7 +51,7 @@ const BlogHome = () => {
         </div>
         <div className="right-content">
           <Slide />
-          {/* <Card /> */}
+          <Card />
           {/* <CardTwo /> */}
           {/* <Footer /> */}
         </div>

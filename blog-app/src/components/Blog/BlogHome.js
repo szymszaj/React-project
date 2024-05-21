@@ -1,5 +1,5 @@
 import React from "react";
-// import Footer from "../footer/Footer";
+import Footer from "../footer/Footer";
 import Slide from "../Slide/Slide";
 import Card from "./Card";
 // import CardTwo from "./CardTwo";
@@ -53,7 +53,7 @@ const BlogHome = () => {
           <Slide />
           <Card />
           {/* <CardTwo /> */}
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </section>
     </>

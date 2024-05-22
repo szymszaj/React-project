@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../footer/Footer";
 import Slide from "../Slide/Slide";
 import Card from "./Card";
-// import CardTwo from "./CardTwo";
+import CardTwo from "./CardTwo";
 
 const BlogHome = () => {
   const data = [
@@ -52,7 +52,7 @@ const BlogHome = () => {
         <div className="right-content">
           <Slide />
           <Card />
-          {/* <CardTwo /> */}
+          <CardTwo />
           <Footer />
         </div>
       </section>

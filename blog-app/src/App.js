@@ -1,12 +1,13 @@
+import React from "react";
 import "./App.css";
 import BlogHome from "./components/Blog/BlogHome";
 
-function App() {
+const App = () => {
   return (
     <>
       <BlogHome />
     </>
   );
-}
+};
 
 export default App;

@@ -25,5 +25,5 @@
   padding: 10px;
 }
 .CardTwo.slide .img img:hover {
-  transform: none;
+  transform: scale(1) !important;
 }

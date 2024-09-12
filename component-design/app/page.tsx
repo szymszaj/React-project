@@ -10,7 +10,7 @@ import {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
-} from "@/components/ui/drawer";
+} from "@/src/components/ui/drawer";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);

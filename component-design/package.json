@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@builder.io/dev-tools": "^1.1.1",
+    "@builder.io/react": "^5.0.1",
+    "@builder.io/sdk": "^3.0.1",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-scroll-area": "^1.1.0",

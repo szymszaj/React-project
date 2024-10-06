@@ -7,11 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center h-full text-center gap-6 max-w-5xl mx-auto">
-      <h1 className="text-5xl font-bold">Dashboard</h1>
+    <main className="flex flex-col justify-center h-full text-center gap-6 max-w-5xl mx-auto my-12">
+      <div className="flex justify-between">
+        <h1 className="text-3xl font-bold">Invoices</h1>
+      </div>
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
@@ -24,12 +27,13 @@ export default function Home() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow className="font-bold">
-            <TableCell className="text-left ">10/02/2024</TableCell>
-            <TableCell className="text-left">Jon I.</TableCell>
-            <TableCell className="text-left">test@lorem.com</TableCell>
-            <TableCell className="text-center">Open</TableCell>
-            <TableCell className="text-right">$250.00</TableCell>
+          <TableRow>
+            <TableCell className="text-left p-4">10/02/2024</TableCell>
+            <TableCell className="text-left p-4">Jon I.</TableCell>
+            <TableCell className="text-left p-4">test@lorem.com</TableCell>
+            <Badge className="rounded-full ">Open</Badge>
+            <TableCell className="text-right p-4">$250.00</TableCell>
+            <a href=""></a>
           </TableRow>
         </TableBody>
       </Table>

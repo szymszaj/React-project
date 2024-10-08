@@ -49,6 +49,13 @@ export default function Home() {
             <Badge className="rounded-full">Paid</Badge>
             <TableCell className="text-right p-4">$450.00</TableCell>
           </TableRow>
+          <TableRow>
+            <TableCell className="text-left p-4">10/08/2024</TableCell>
+            <TableCell className="text-left p-4">Mark S.</TableCell>
+            <TableCell className="text-left p-4">mark@example.com</TableCell>
+            <Badge className="rounded-full">Overdue</Badge>
+            <TableCell className="text-right p-4">$320.00</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </main>

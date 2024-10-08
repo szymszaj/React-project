@@ -39,9 +39,15 @@ export default function Home() {
             <TableCell className="text-left p-4">10/02/2024</TableCell>
             <TableCell className="text-left p-4">Jon I.</TableCell>
             <TableCell className="text-left p-4">test@lorem.com</TableCell>
-            <Badge className="rounded-full ">Open</Badge>
+            <Badge className="rounded-full">Open</Badge>
             <TableCell className="text-right p-4">$250.00</TableCell>
-            <a href=""></a>
+          </TableRow>
+          <TableRow>
+            <TableCell className="text-left p-4">10/05/2024</TableCell>
+            <TableCell className="text-left p-4">Alice W.</TableCell>
+            <TableCell className="text-left p-4">alice@example.com</TableCell>
+            <Badge className="rounded-full">Paid</Badge>
+            <TableCell className="text-right p-4">$450.00</TableCell>
           </TableRow>
         </TableBody>
       </Table>

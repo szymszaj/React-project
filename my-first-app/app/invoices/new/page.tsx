@@ -1,6 +1,7 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -37,8 +38,10 @@ export default function Home() {
           </Label>
           <Textarea id="description" name="description"></Textarea>
         </div>
+        <div>
+          <Button className="w-full font-semibold">Submit</Button>
+        </div>
       </form>
     </main>
   );
 }
-// 30min

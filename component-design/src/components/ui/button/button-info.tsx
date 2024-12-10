@@ -10,14 +10,12 @@ Builder.registerComponent(Button, {
     {
       name: "variant",
       type: "enum",
-      // enum: ["default", "destructive", "outline", "secondary", "ghost", "link"],
       defaultValue: "default",
       helperText: "Select the button variant",
     },
     {
       name: "size",
       type: "enum",
-      // enum: ["default", "sm", "lg", "icon"],
       defaultValue: "default",
       helperText: "Select the button size",
     },

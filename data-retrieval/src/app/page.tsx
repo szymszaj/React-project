@@ -10,7 +10,7 @@ export default function HomePage() {
         {sections.map((section) => (
           <div key={section.id} id={section.id} className="my-10">
             <h2 className="text-2xl font-bold">{section.title}</h2>
-            <p className="mt-2 text-gray-600">{section.content}</p>
+            <p className="mt-2 text-gray-900">{section.content}</p>
           </div>
         ))}
       </div>

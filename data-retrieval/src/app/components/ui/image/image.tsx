@@ -10,8 +10,6 @@ interface ImageProps {
   readonly quality?: number;
   readonly priority?: boolean;
   readonly layout?: "fill" | "fixed" | "intrinsic" | "responsive";
-  readonly sizes?: string;
-  readonly fill?: boolean;
   readonly objectFit?: "contain" | "cover";
 }
 

@@ -1,5 +1,5 @@
-import { TitlesNav } from "@/app/components/ui/titleNav";
-import { sections } from "@/app/components/data/sections";
+import { sections } from "@/components/data/sections";
+import { TitlesNav } from "@/components/ui/titleNav";
 
 export default function HomePage() {
   return (

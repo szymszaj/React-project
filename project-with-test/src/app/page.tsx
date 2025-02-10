@@ -20,11 +20,17 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion/accordion";
 import { BarChartComponent } from "@/components/ui/chart/barChart";
+import { ThemeProvider } from "next-themes";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen bg-gray-900 text-white">
-      {/* Navigation */}
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      ></ThemeProvider>
       <nav className="w-full bg-gray-800 p-4">
         <NavigationMenu>
           <NavigationMenuList>
@@ -46,7 +52,6 @@ export default function Home() {
         <BarChartComponent />
       </section>
 
-      {/* Cards Section */}
       <section className="w-full max-w-4xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
@@ -67,7 +72,6 @@ export default function Home() {
         </Card>
       </section>
 
-      {/* Accordion Section */}
       <section className="w-full max-w-4xl p-6">
         <h2 className="text-2xl font-bold mb-4">FAQ</h2>
         <Accordion type="single" collapsible>

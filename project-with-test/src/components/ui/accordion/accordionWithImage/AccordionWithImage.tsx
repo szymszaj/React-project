@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../accordion";
+import Image from "next/image";
 
 interface AccordionWithImageProps {
   title: string;
@@ -27,11 +28,18 @@ const AccordionWithImage: React.FC<AccordionWithImageProps> = ({
           <div>
             <p>{content}</p>
             <div className="relative text-center">
-              <img src={imageUrl} alt={imageAlt} className="w-full" />
+              <Image
+                src={imageUrl}
+                alt={imageAlt}
+                layout="responsive"
+                width={700}
+                height={475}
+              />
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
                 {imageAlt}
               </div>
             </div>
+            <div className="mt-4"></div>
           </div>
         </AccordionContent>
       </AccordionItem>

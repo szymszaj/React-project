@@ -26,17 +26,9 @@ const AccordionWithImage: React.FC<AccordionWithImageProps> = ({
         <AccordionContent>
           <div>
             <p>{content}</p>
-            <div style={{ position: "relative", textAlign: "center" }}>
-              <img src={imageUrl} alt={imageAlt} style={{ width: "100%" }} />
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  color: "white",
-                }}
-              >
+            <div className="relative text-center">
+              <img src={imageUrl} alt={imageAlt} className="w-full" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white">
                 {imageAlt}
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { Header } from "@/lib/components/Header";
+import { Hero } from "@/lib/components/Hero";
 import Head from "next/head";
 
 export default function Home() {
@@ -14,8 +15,12 @@ export default function Home() {
       </Head>
 
       <Header />
+      <Hero />
 
-      <main className="flex flex-col items-center justify-center flex-1 p-8 text-center">
+      <main
+        id="content"
+        className="flex flex-col items-center justify-center flex-1 p-8 text-center"
+      >
         <h1 className="text-4xl font-bold mb-4">Welcome to Our Apartment</h1>
         <p className="text-lg">Your perfect home away from home.</p>
       </main>

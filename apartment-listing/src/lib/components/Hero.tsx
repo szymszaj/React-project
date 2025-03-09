@@ -1,5 +1,3 @@
-"use client";
-
 const Hero = () => {
   const scrollToContent = () => {
     const contentSection = document.getElementById("content");
@@ -13,7 +11,7 @@ const Hero = () => {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="absolute top-16 left-16 z-10 text-left text-white p-16">
-        <h2 className="text-5xl font-bold mb-4">Apartament u Moniki</h2>
+        <h2 className="text-5xl mb-4">Apartament u Moniki</h2>
       </div>
       <div className="absolute bottom-10 w-full flex justify-center mb-4 z-10">
         <button

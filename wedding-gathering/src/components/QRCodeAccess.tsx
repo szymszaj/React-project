@@ -1,7 +1,6 @@
-
-import { useState, useEffect } from 'react';
-import { Lock } from 'lucide-react';
-import AccessModal from './AccessModal';
+import { useState, useEffect } from "react";
+import { Lock } from "lucide-react";
+import AccessModal from "./AccessModal";
 
 interface QRCodeAccessProps {
   children: React.ReactNode;
@@ -13,12 +12,10 @@ const QRCodeAccess = ({ children }: QRCodeAccessProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user has already been verified
-    const hasAccess = localStorage.getItem('weddingAccessVerified') === 'true';
+    const hasAccess = localStorage.getItem("weddingAccessVerified") === "true";
     setIsVerified(hasAccess);
     setIsLoading(false);
-    
-    // If not verified, show modal
+
     if (!hasAccess) {
       setShowModal(true);
     }
@@ -46,15 +43,16 @@ const QRCodeAccess = ({ children }: QRCodeAccessProps) => {
           <div className="w-20 h-20 rounded-full neo-morphism flex items-center justify-center mb-8">
             <Lock size={32} className="text-wedding-accent" />
           </div>
-          
+
           <h1 className="font-display text-3xl md:text-4xl text-wedding-dark mb-4 text-center">
             Zawartość chroniona
           </h1>
-          
+
           <p className="font-serif text-wedding-accent text-center max-w-md mb-8">
-            To zaproszenie jest prywatne i wymaga kodu dostępu z papierowego zaproszenia.
+            To zaproszenie jest prywatne i wymaga kodu dostępu z papierowego
+            zaproszenia.
           </p>
-          
+
           <button
             onClick={() => setShowModal(true)}
             className="px-8 py-3 rounded-lg bg-wedding-dark text-white font-medium transition-all hover:bg-wedding-dark/90"
@@ -62,7 +60,7 @@ const QRCodeAccess = ({ children }: QRCodeAccessProps) => {
             Wprowadź kod dostępu
           </button>
         </div>
-        
+
         <AccessModal
           isOpen={showModal}
           onClose={() => setShowModal(false)}

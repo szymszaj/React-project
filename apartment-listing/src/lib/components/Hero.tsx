@@ -1,3 +1,4 @@
+"use client";
 const Hero = () => {
   const scrollToContent = () => {
     const contentSection = document.getElementById("content");

@@ -1,7 +1,9 @@
-import { useState } from "react";
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram, FaFacebook, FaAirbnb } from "react-icons/fa";
+import { useState } from "react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

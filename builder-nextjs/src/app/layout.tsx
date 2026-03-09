@@ -20,7 +20,6 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-white dark:bg-slate-900 text-slate-900 dark:text-white`}
       >
-        {/* Navigation */}
         <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
           <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <Link href="/" className="font-bold text-xl tracking-tight">
@@ -54,10 +53,8 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* Page content */}
         {children}
 
-        {/* Footer */}
         <footer className="border-t border-slate-200 dark:border-slate-800 py-10 px-6 mt-20">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-400 text-sm">

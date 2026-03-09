@@ -1,10 +1,10 @@
 const User = {
-  posts(parent, args, { db }, info) {
+  posts(parent, { db }) {
     return db.posts.filter((post) => {
       return post.author === parent.id;
     });
   },
-  comments(parent, args, { db }, info) {
+  comments(parent, { db }) {
     return db.comments.filter((comment) => {
       return comment.author === parent.id;
     });

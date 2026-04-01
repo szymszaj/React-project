@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,8 +133,8 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0 bg-black/50 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black z-[2]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-[2]" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-transparent to-black z-[2]" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/40 via-transparent to-black/40 z-2" />
 
       <div className="absolute inset-0 z-[3] overflow-hidden pointer-events-none">
         <div

@@ -1,5 +1,7 @@
 // Prisma schema for RouteRadar
-// Dev: SQLite. To switch to Postgres later: change provider + DATABASE_URL.
+// Dev: SQLite (no enum support — enums live in @route-radar/types as zod schemas).
+// To switch to Postgres: change provider + DATABASE_URL, then optionally convert
+// `role` and `status` String fields to native enums.
 
 generator client {
   provider = "prisma-client-js"
@@ -10,26 +12,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  DISPATCHER
-  DRIVER
-  CLIENT
-}
-
-enum DeliveryStatus {
-  PENDING
-  ASSIGNED
-  IN_PROGRESS
-  DELIVERED
-  FAILED
-}
+// Role values:           "DISPATCHER" | "DRIVER" | "CLIENT"
+// DeliveryStatus values: "PENDING" | "ASSIGNED" | "IN_PROGRESS" | "DELIVERED" | "FAILED"
 
 model User {
   id           String   @id @default(cuid())
   email        String   @unique
   name         String
   passwordHash String
-  role         Role     @default(DISPATCHER)
+  role         String   @default("DISPATCHER")
   createdAt    DateTime @default(now())
 
   // For drivers: routes assigned to them
@@ -57,24 +48,24 @@ model Delivery {
   recipient   String
   phone       String?
   notes       String?
-  status      DeliveryStatus @default(PENDING)
-  priority    Int            @default(0)
+  status      String    @default("PENDING")
+  priority    Int       @default(0)
 
   addressId   String
-  address     Address        @relation(fields: [addressId], references: [id])
+  address     Address   @relation(fields: [addressId], references: [id])
 
   createdById String
-  createdBy   User           @relation("CreatedBy", fields: [createdById], references: [id])
+  createdBy   User      @relation("CreatedBy", fields: [createdById], references: [id])
 
   routeId     String?
-  route       Route?         @relation(fields: [routeId], references: [id])
+  route       Route?    @relation(fields: [routeId], references: [id])
   stopOrder   Int?
 
   deliveredAt DateTime?
   proofNote   String?
 
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@index([status])
   @@index([routeId])

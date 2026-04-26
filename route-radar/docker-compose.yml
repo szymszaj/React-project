@@ -1,0 +1,27 @@
+# Use later when you want to switch from SQLite to Postgres + add Redis.
+# Run: docker compose up -d   (after installing Docker Desktop)
+# Then change DATABASE_URL in .env to the postgres URL from .env.example
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: routeradar
+      POSTGRES_PASSWORD: routeradar
+      POSTGRES_DB: routeradar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

@@ -1,0 +1,25 @@
+{
+  "name": "route-radar",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "db:push": "npm run db:push -w @route-radar/db",
+    "db:seed": "npm run db:seed -w @route-radar/db",
+    "db:studio": "npm run db:studio -w @route-radar/db"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

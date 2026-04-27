@@ -32,21 +32,22 @@ npm run db:seed
 npm run dev
 ```
 
-Web: http://localhost:3000  · API: http://localhost:4000/health
+Web: http://localhost:3000 · API: http://localhost:4000/health
 
 Dane logowania (z seeda):
+
 - `dispatcher@routeradar.dev` / `password123`
 - `driver@routeradar.dev` / `password123`
 
 ## Roadmapa (etapy do CV)
 
-| Etap | Zakres | Status |
-|------|--------|--------|
-| 1 — MVP | Auth (JWT), CRUD dostaw, lista + mapa, geocoding (Nominatim) | ✅ scaffold |
-| 2 — Optymalizacja | Algorytm trasy (nearest-neighbor → 2-opt), OSRM dla odległości, BullMQ jako queue | ⏳ |
-| 3 — PWA dla kierowcy | offline cache, status dostawy, proof of delivery (zdjęcie + podpis) | ⏳ |
-| 4 — Realtime tracking | WebSocket (Socket.IO), publiczny link dla klienta | ⏳ |
-| 5 — Powiadomienia + multi-tenant | SMS (Twilio) / email (Resend), wiele firm, statystyki | ⏳ |
+| Etap                             | Zakres                                                                            | Status      |
+| -------------------------------- | --------------------------------------------------------------------------------- | ----------- |
+| 1 — MVP                          | Auth (JWT), CRUD dostaw, lista + mapa, geocoding (Nominatim)                      | ✅ scaffold |
+| 2 — Optymalizacja                | Algorytm trasy (nearest-neighbor → 2-opt), OSRM dla odległości, BullMQ jako queue | ⏳          |
+| 3 — PWA dla kierowcy             | offline cache, status dostawy, proof of delivery (zdjęcie + podpis)               | ⏳          |
+| 4 — Realtime tracking            | WebSocket (Socket.IO), publiczny link dla klienta                                 | ⏳          |
+| 5 — Powiadomienia + multi-tenant | SMS (Twilio) / email (Resend), wiele firm, statystyki                             | ⏳          |
 
 ## Przejście na Postgres + Redis
 

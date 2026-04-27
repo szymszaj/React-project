@@ -3,7 +3,6 @@ import { createHash } from "node:crypto";
 
 const prisma = new PrismaClient();
 
-// Simple sha256 for seed only. Real auth uses bcrypt (see apps/api).
 const hash = (s: string) => createHash("sha256").update(s).digest("hex");
 
 async function main() {
@@ -29,7 +28,6 @@ async function main() {
     },
   });
 
-  // Sample addresses around Warsaw
   const samples = [
     {
       label: "Klient A",

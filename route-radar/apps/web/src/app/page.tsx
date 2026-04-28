@@ -21,6 +21,12 @@ export default function HomePage() {
         >
           Demo dashboardu
         </Link>
+        <Link
+          href="/routes"
+          className="rounded-lg border border-slate-300 bg-white px-5 py-2.5 hover:bg-slate-100"
+        >
+          Trasy
+        </Link>
       </div>
       <p className="mt-12 text-sm text-slate-500">
         Dane testowe: <code>dispatcher@routeradar.dev / password123</code>

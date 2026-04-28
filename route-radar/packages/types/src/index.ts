@@ -48,3 +48,23 @@ export type DeliveryUpdateInputT = z.infer<typeof DeliveryUpdateInput>;
 export const GeocodeQuery = z.object({
   q: z.string().min(3),
 });
+
+export const RouteCreateInput = z.object({
+  name: z.string().min(1),
+  date: z.string().datetime().or(z.date()),
+  driverId: z.string().optional(),
+  startLat: z.number().min(-90).max(90).optional(),
+  startLng: z.number().min(-180).max(180).optional(),
+});
+export type RouteCreateInputT = z.infer<typeof RouteCreateInput>;
+
+export const RouteAssignInput = z.object({
+  deliveryIds: z.array(z.string()).min(1),
+});
+export type RouteAssignInputT = z.infer<typeof RouteAssignInput>;
+
+export const RouteOptimizeOptions = z.object({
+  // "osrm" uses real road distances; "haversine" is offline fallback.
+  metric: z.enum(["osrm", "haversine"]).default("osrm"),
+});
+export type RouteOptimizeOptionsT = z.infer<typeof RouteOptimizeOptions>;

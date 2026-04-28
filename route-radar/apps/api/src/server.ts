@@ -5,13 +5,16 @@ import jwt from "@fastify/jwt";
 import { authRoutes } from "./routes/auth.js";
 import { deliveriesRoutes } from "./routes/deliveries.js";
 import { geocodeRoutes } from "./routes/geocode.js";
+import { routesRoutes } from "./routes/routes.js";
 import { authPlugin } from "./plugins/auth.js";
 
 const PORT = Number(process.env.API_PORT ?? 4000);
 const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET || JWT_SECRET.length < 16) {
-  console.error("JWT_SECRET missing or too short. Set it in .env (>=16 chars).");
+  console.error(
+    "JWT_SECRET missing or too short. Set it in .env (>=16 chars).",
+  );
   process.exit(1);
 }
 
@@ -29,6 +32,7 @@ app.get("/health", async () => ({ ok: true, ts: Date.now() }));
 
 await app.register(authRoutes, { prefix: "/auth" });
 await app.register(deliveriesRoutes, { prefix: "/deliveries" });
+await app.register(routesRoutes, { prefix: "/routes" });
 await app.register(geocodeRoutes, { prefix: "/geocode" });
 
 app

@@ -1,8 +1,20 @@
+// Route optimization service.
+//
+// Strategy:
+//  1. Build NxN distance matrix between [start, ...stops]
+//     - via OSRM /table API (real road distances) when metric === "osrm"
+//     - or great-circle (haversine) fallback (offline, fast, ~roughly correct)
+//  2. Nearest-neighbor heuristic to get an initial tour
+//  3. 2-opt local search to improve it (swap edges while it shortens the tour)
+//
+// We treat this as an "open" TSP starting at index 0 (depot) — we don't return.
+
 export type LatLng = { lat: number; lng: number };
 
 const OSRM_BASE = "https://router.project-osrm.org";
 
-const R = 6_371_000;
+// ---------- haversine fallback ----------
+const R = 6_371_000; // meters
 const toRad = (d: number) => (d * Math.PI) / 180;
 
 export function haversine(a: LatLng, b: LatLng): number {
@@ -20,10 +32,11 @@ function haversineMatrix(points: LatLng[]): number[][] {
   return points.map((a) => points.map((b) => haversine(a, b)));
 }
 
+// ---------- OSRM table API ----------
 interface OsrmTableResponse {
   code: string;
-  durations?: number[][];
-  distances?: number[][];
+  durations?: number[][]; // seconds
+  distances?: number[][]; // meters
 }
 
 export async function osrmMatrix(points: LatLng[]): Promise<{
@@ -43,6 +56,7 @@ export async function osrmMatrix(points: LatLng[]): Promise<{
   return { distances: data.distances, durations: data.durations };
 }
 
+// ---------- algorithms ----------
 export function nearestNeighbor(matrix: number[][], start = 0): number[] {
   const n = matrix.length;
   const visited = new Array<boolean>(n).fill(false);
@@ -76,6 +90,7 @@ export function tourLength(tour: number[], matrix: number[][]): number {
   return sum;
 }
 
+// 2-opt for an OPEN tour (depot fixed at index 0, no return).
 export function twoOpt(initial: number[], matrix: number[][]): number[] {
   let tour = [...initial];
   let improved = true;
@@ -84,18 +99,19 @@ export function twoOpt(initial: number[], matrix: number[][]): number[] {
 
   while (improved && guard++ < maxIters) {
     improved = false;
-
+    // i starts at 1 to keep the depot fixed
     for (let i = 1; i < tour.length - 1; i++) {
       for (let k = i + 1; k < tour.length; k++) {
         const a = tour[i - 1]!;
         const b = tour[i]!;
         const c = tour[k]!;
-        const d = tour[k + 1];
+        const d = tour[k + 1]; // may be undefined for open tour end
 
         const before = matrix[a]![b]! + (d !== undefined ? matrix[c]![d]! : 0);
         const after = matrix[a]![c]! + (d !== undefined ? matrix[b]![d]! : 0);
 
         if (after + 1e-9 < before) {
+          // Reverse segment [i..k]
           const segment = tour.slice(i, k + 1).reverse();
           tour = [...tour.slice(0, i), ...segment, ...tour.slice(k + 1)];
           improved = true;
@@ -106,16 +122,18 @@ export function twoOpt(initial: number[], matrix: number[][]): number[] {
   return tour;
 }
 
+// ---------- public entry point ----------
 export interface OptimizeInput {
-  start?: LatLng;
+  start?: LatLng; // depot; if omitted we use first stop as start
   stops: LatLng[];
   metric: "osrm" | "haversine";
 }
 
 export interface OptimizeResult {
+  // Indices into the original `stops` array, in optimized visit order.
   order: number[];
-  totalDistance: number;
-  totalDuration: number;
+  totalDistance: number; // meters
+  totalDuration: number; // seconds (0 when haversine)
   metric: "osrm" | "haversine";
 }
 
@@ -138,6 +156,7 @@ export async function optimizeRoute(
       distances = m.distances;
       durations = m.durations;
     } catch {
+      // graceful fallback
       distances = haversineMatrix(points);
       durations = distances.map((row) => row.map(() => 0));
     }
@@ -149,9 +168,12 @@ export async function optimizeRoute(
   const initial = nearestNeighbor(distances, 0);
   const optimized = twoOpt(initial, distances);
 
+  // Total cost along optimized tour
   const totalDistance = tourLength(optimized, distances);
   const totalDuration = tourLength(optimized, durations);
 
+  // Map back to original stop indices.
+  // If `start` was provided, points[0] is depot; subtract 1 to get stop index.
   const order = input.start ? optimized.slice(1).map((i) => i - 1) : optimized;
 
   return { order, totalDistance, totalDuration, metric };

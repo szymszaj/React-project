@@ -41,13 +41,13 @@ Dane logowania (z seeda):
 
 ## Roadmapa (etapy do CV)
 
-| Etap                             | Zakres                                                                            | Status      |
-| -------------------------------- | --------------------------------------------------------------------------------- | ----------- |
-| 1 — MVP                          | Auth (JWT), CRUD dostaw, lista + mapa, geocoding (Nominatim)                      | ✅ scaffold |
-| 2 — Optymalizacja                | Algorytm trasy (nearest-neighbor → 2-opt), OSRM dla odległości, BullMQ jako queue | ⏳          |
-| 3 — PWA dla kierowcy             | offline cache, status dostawy, proof of delivery (zdjęcie + podpis)               | ⏳          |
-| 4 — Realtime tracking            | WebSocket (Socket.IO), publiczny link dla klienta                                 | ⏳          |
-| 5 — Powiadomienia + multi-tenant | SMS (Twilio) / email (Resend), wiele firm, statystyki                             | ⏳          |
+| Etap                             | Zakres                                                                                     | Status |
+| -------------------------------- | ------------------------------------------------------------------------------------------ | ------ |
+| 1 — MVP                          | Auth (JWT), CRUD dostaw, lista + mapa, geocoding (Nominatim)                               | ✅     |
+| 2 — Optymalizacja                | Routes CRUD, nearest-neighbor + 2-opt, OSRM table API + haversine fallback, polilinia w UI | ✅     |
+| 3 — PWA dla kierowcy             | offline cache, status dostawy, proof of delivery (zdjęcie + podpis)                        | ⏳     |
+| 4 — Realtime tracking            | WebSocket (Socket.IO), publiczny link dla klienta                                          | ⏳     |
+| 5 — Powiadomienia + multi-tenant | SMS (Twilio) / email (Resend), wiele firm, statystyki                                      | ⏳     |
 
 ## Przejście na Postgres + Redis
 
